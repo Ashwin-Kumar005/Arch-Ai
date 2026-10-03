@@ -76,3 +76,15 @@ def root():
         "docs": "/docs",
         "api_v1": settings.API_V1_STR
     }
+
+
+@app.get("/health")
+@app.head("/health")
+def health_check():
+    return {
+        "status": "HEALTHY",
+        "app_name": settings.APP_NAME,
+        "environment": settings.APP_ENV,
+        "demo_mode": settings.DEMO_MODE,
+        "llm_provider": settings.LLM_PROVIDER
+    }
