@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  test-api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    command: pytest tests/ -v
+    environment:
+      - DATABASE_URL=sqlite:///:memory:
+      - DEMO_MODE=true

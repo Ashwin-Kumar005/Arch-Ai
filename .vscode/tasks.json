@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ArchAI: Build Web App",
+            "type": "shell",
+            "command": "npm run build:web",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$tsc"]
+        },
+        {
+            "label": "ArchAI: Run Backend Tests",
+            "type": "shell",
+            "command": "pytest",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "ArchAI: Start Frontend (Dev)",
+            "type": "shell",
+            "command": "npm run dev:web",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "ArchAI: Start Backend (Dev)",
+            "type": "shell",
+            "command": "uvicorn app.main:app --reload --port 8000",
+            "options": {
+                "cwd": "${workspaceFolder}/apps/api"
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}

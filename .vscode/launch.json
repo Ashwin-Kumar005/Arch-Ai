@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ArchAI: Next.js Web (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/apps/web"
+        },
+        {
+            "name": "ArchAI: FastAPI Backend (Python)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "app.main:app",
+                "--reload",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "8000"
+            ],
+            "cwd": "${workspaceFolder}/apps/api",
+            "jinja": true,
+            "justMyCode": true
+        }
+    ],
+    "compounds": [
+        {
+            "name": "ArchAI: Full Stack (Frontend + Backend)",
+            "configurations": [
+                "ArchAI: FastAPI Backend (Python)",
+                "ArchAI: Next.js Web (Chrome)"
+            ]
+        }
+    ]
+}
